@@ -1,0 +1,168 @@
+body {
+    text-align: center;
+    min-width: 680px;
+    font-family: Sans-serif;
+    /* font-size: 25px; */
+    margin: auto;
+    background-color: rgb(204, 203, 203);
+    width: auto;
+    height: auto;
+}
+
+.container {
+    padding: 15% 0%;
+}
+
+#resume {
+    font-family: 'Times New Roman', Times, serif;
+}
+
+.container-resume {
+    padding: 10px;
+}
+
+#content {
+    width: 40%;
+    margin: auto;
+    padding: 10px;
+    background-color: rgb(106, 130, 198);
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.37), 0 6px 20px 0 rgba(0, 0, 0, 0.37);
+}
+
+#ribbon {
+    padding-top: 10px 0px;
+    font-size: 10px;
+}
+
+#resume {
+    margin: 20px;
+    padding: 10px;
+    background-color: whitesmoke;
+    border: 2px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.37), 0 6px 20px 0 rgba(0, 0, 0, 0.37);
+}
+
+input {
+    width: 35%;
+    height: 30px;
+    margin: 18px;
+    border-radius: 5px;
+    font-size: 15px;
+}
+
+button {
+    padding: 10px;
+    cursor: pointer;
+    background-color: rgb(18, 17, 17);
+    color: white;
+    font-size: 12px;
+
+    width: 90px;
+    border-radius: 5px;
+}
+
+#login {
+    width: 20%;
+    border-radius: 12px;
+    font-size: 15px;
+}
+
+#no-result {
+    display: flex;      /* display flex or none :: based on condition */
+    padding: 5% 25%;
+    gap: 30px;
+    display: none;
+}
+#no-result img {
+    width: 25%;
+}
+
+#default {
+    /* display:none; */        /* display block or none :: based on condition */ 
+    width: auto;
+    padding: 0%;
+}
+
+.head {
+    background-color: lightblue;
+    border: 1px solid lightblue;
+    font-weight: bold;
+    padding: 10px 0px;
+    position: relative;
+}
+.head h1 {
+    font-size: 30px;
+}
+.head img {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20%;
+}
+
+.personal {
+    width: 15%;
+    background-color: rgb(249, 210, 210);
+    padding: 10px;
+    margin-top: 20px;
+    margin-left: 0px;
+    float: left;
+    min-width: 120px;
+}
+.personal h2 {
+    background-color: rgb(146, 145, 145);
+    font-weight: bold;
+    text-align: left;
+}
+.personal p, .personal a {
+    text-align: right;
+    width: auto;
+    margin-left: 0%;
+}
+
+.work {
+    text-align: justify;
+    padding: 10px;
+    padding-left: 18%;
+    padding-right: 5%;
+}
+.work p {
+    margin-left: 40px;
+    font-weight: bold;
+}
+.work li {
+    font-weight: bold;
+}
+.work span {
+    font-weight: normal;
+}
+
+section h2 {
+    font-size: 20px;
+}
+
+/* Previous Next buttons visibility control */
+#prev {
+    display: none;                  /* display inline-block or none :: based on condition */
+}
+#next {
+    display: none;                  /* display inline-block or none :: based on condition */
+}
+
+/* Logout button */
+#logout {
+    float: right;
+    top: 1;
+    right: 0;
+    background-color: red;
+    font-weight: bold;
+    border-radius: 0px;
+    border-top-left-radius: 15px 20px;
+    border-bottom-left-radius: 15px 20px;
+    width: 100px;
+    margin-right: -10px;
+}
+#logout:hover {
+    box-shadow: 10px 10px 8px #888888;
+}
