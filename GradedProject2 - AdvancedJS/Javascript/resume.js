@@ -1,19 +1,61 @@
 
 sessionStorage.setItem("index", 0);
 
-var searchData = data.resume;
+let resumeData = null; //data.resume;
+let searchData = null;
+let currentResume = null;
+
+
+// fetching json data from json server
+const fetchData = async () => {
+    try {
+      let response = await fetch("http://localhost:3000/resume");
+      let data = await response.json();
+
+      resumeData = data;            // resume array
+      searchData = resumeData;
+      currentResume = searchData[0];
+
+      console.log(searchData);
+
+      return data;
+    } 
+    catch (error) {
+      console.log(error);
+    }
+};
+
+
+// main function
+async function main() {
+
+    await fetchData();
+    renderResume(currentResume);
+    showHidePrevNextButton(Number(sessionStorage.getItem("index")));
+
+}
+
+main();
+
+
+
+/*searchData = resumeData; //data.resume;
 console.log(searchData);
 
-let currentResume = data.resume[0];
+currentResume = searchData[0]; //data.resume[0];
 //console.log(currentResume);
 
 renderResume(currentResume);
 showHidePrevNextButton(Number(sessionStorage.getItem("index")));
+*/
+
 
 
 
 // rendering the current Resume details
 function renderResume(currentResume) {
+
+    console.log('rendering resume...');
 
     // enabling resume content : default; disabling no-result
     document.getElementById("default").style.display = "block";
@@ -170,7 +212,7 @@ function goToNextPage() {
     let index = Number(sessionStorage.getItem("index"));
     index = index + 1;
     //console.log(index);
-    if (index < data.resume.length) {
+    if (index < resumeData.length) {
         currentResume = searchData[index]; //data.resume[index];
         sessionStorage.setItem("index", index.toString());
         renderResume(currentResume);
@@ -218,7 +260,7 @@ function showHidePrevNextButton(index) {
 
 // searching or filtering json data based on entered keyword
 function search(value) {
-    return data.resume.filter((element) => element.basics.AppliedFor.toLowerCase().includes(value.toLowerCase()))
+    return resumeData.filter((element) => element.basics.AppliedFor.toLowerCase().includes(value.toLowerCase()))
 }
 
 
@@ -238,6 +280,9 @@ function searchResumeOnAppliedJob() {
             // rendering no-result content with no matching result
             document.getElementById("default").style.display = "none";
             document.getElementById("no-result").style.display = "flex";
+
+            document.getElementById("next").style.display = "none";
+            document.getElementById("prev").style.display = "none";
         }
         else {
             // rendering resume content for the matching result
@@ -251,8 +296,8 @@ function searchResumeOnAppliedJob() {
     }
     else {
         // rendering all results at the time of no input
-        searchData = data.resume;
-        currentResume = data.resume[0];
+        searchData = resumeData;
+        currentResume = searchData[0];
         renderResume(currentResume);
         showHidePrevNextButton(Number(sessionStorage.getItem("index")));
     }
